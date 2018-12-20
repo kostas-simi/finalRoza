@@ -23,10 +23,10 @@
 <table>
   <tr><td><label for="product">Τίτλοι<sup>*</sup> :</label></td>
     <td><select id="product" required >
-          <option value="Ο Τελευταίος Πιστολέρο">Ο Τελευταίος Πιστολέρο</option>
-          <option value="Το Κάλεσμα Των Τριών">Το Κάλεσμα Των Τριών</option>
-          <option value="Οι Ρημαγμένοι Τόποι">Οι Ρημαγμένοι Τόποι</option>
-          <option value="Οι Λύκοι Της Κάλα">Οι Λύκοι Της Κάλα</option>
+          <option value="a">Ο Τελευταίος Πιστολέρο</option>
+          <option value="b">Το Κάλεσμα Των Τριών</option>
+          <option value="c">Οι Ρημαγμένοι Τόποι</option>
+          <option value="d">Οι Λύκοι Της Κάλα</option>
           <option value="Το Πράσινο Μίλι">Το Πράσινο Μίλι</option>
       </select></td></tr>
     <tr><td><label for="quantity">Αριθμός Αντιτύπων<sup>*</sup>:</label></td>
@@ -39,62 +39,89 @@
 <table id="order" name="order">
 </table>
 <br>
-<input type="submit" value="Επιβεβαίωση" onclick="ClickMe();">
 </form>
+<form method="post" action="open.php" id="orderForm">
+  <input type="hidden" id="hiddenEmail">
+  <input type='hidden' id="metritis" name='metritis'>
 
+<input type="submit" value="Επιβεβαίωση" >
+</form>
 </body>
 <script>
-var i=1;
+var i=0;
 
 function order()
 {
-  title = document.getElementById('product').value;
-  number = document.getElementById('quantity').value;
-  document.getElementById('order').innerHTML += "<tr><td id='title'"+i+">"+title+"</td><td id='number'"+i+">"+number+"</td></tr>";
+  var title = document.getElementById('product').value;
+  var number = document.getElementById('quantity').value;
+  document.getElementById('metritis').value = i;
+  document.getElementById('orderForm').innerHTML +="<input type='hidden' name='title[]' value="+title+">";
+  document.getElementById('orderForm').innerHTML +="<input type='hidden' name='number[]' value="+number+">";
+  if (title == 'a') {
+    title = "Ο Τελευταίος Πιστολέρο";
+  }else if (title == 'b') {
+    title = "Το Κάλεσμα Των Τριών";
+  }else if (title == 'c') {
+    title = "Οι Ρημαγμένοι Τόποι";
+  }else if (title == 'd') {
+    title = "Οι Λύκοι Της Κάλα";
+  }
+  document.getElementById('order').innerHTML += "<tr><td>"+title+"</td><td>"+number+"</td></tr>";
   i++;
+  document.getElementById('hiddenEmail').value = document.getElementById('email').value;
 }
 
-function ClickMe()
+// function ClickMe()
+// {
+//   var newWindow = window.open("");
+//   var table = document.getElementById('order');
+//   newWindow.document.write("<html>");
+//
+//   newWindow.document.write("<body>");
+//   newWindow.document.write("<form method='post' action='register.php'>");
+//   newWindow.document.write("<table>");
+//
+//   newWindow.document.write("<h3>Έχετε επιλέξει τα ακόλουθα:</h3>");
+//   for (var r = 0, n = table.rows.length; r < n; r++) {
+//     newWindow.document.write("<tr>");
+//     for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
+//       if (c == 0){
+//         newWindow.document.write("<td id='titloi"+r+"'>"+table.rows[r].cells[c].innerHTML+"</td>");
+//       }else if (c==1) {
+//
+//         newWindow.document.write("<td id='posotita"+r+"'>"+table.rows[r].cells[c].innerHTML+"</td>");
+//       }
+//       }
+//       newWindow.document.write("</tr>");
+//
+// }
+// newWindow.document.write("</table>");
+//
+// newWindow.document.write("<p>Είστε σίγουροι ότι θέλετε να καταχωρηθεί η παραγγελία?</p>");
+// var email = document.getElementById('email').value;
+// newWindow.document.write("<input type='hidden' name='email'>");
+// newWindow.document.write("<input type='hidden' name='metritis'>");
+// newWindow.document.getElementsByName('metritis')[0].value = r;
+//
+// newWindow.document.getElementsByName('email')[0].value = email;
+//
+// newWindow.document.write("<button type='button' onclick='window.close()'>Ακύρωση</button>");
+// newWindow.document.write("<input type='submit'  value='Καταχώρηση'>");
+// newWindow.document.write("</form>");
+// newWindow.document.write("</body>");
+// newWindow.document.write("</html>");
+//
+//
+//
+// }
+
+
+function openMe()
 {
-  var newWindow = window.open("");
-  var table = document.getElementById('order');
-  newWindow.document.write("<html>");
-
-  newWindow.document.write("<body>");
-  newWindow.document.write("<form method='post' action='register.php'>");
-  newWindow.document.write("<table>");
-
-  newWindow.document.write("<h3>Έχετε επιλέξει τα ακόλουθα:</h3>");
-  for (var r = 0, n = table.rows.length; r < n; r++) {
-    newWindow.document.write("<tr>");
-    for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
-      if (c == 0){
-        newWindow.document.write("<td id='titloi"+r+"'>"+table.rows[r].cells[c].innerHTML+"</td>");
-      }else if (c==1) {
-
-        newWindow.document.write("<td id='posotita"+r+"'>"+table.rows[r].cells[c].innerHTML+"</td>");
-      }
-      }
-      newWindow.document.write("</tr>");
-
+  var newWindow = window.open("open.php");
 }
-newWindow.document.write("</table>");
-
-newWindow.document.write("<p>Είστε σίγουροι ότι θέλετε να καταχωρηθεί η παραγγελία?</p>");
-var email = document.getElementById('email').value;
-newWindow.document.write("<input type='hidden' name='email'>");
-newWindow.document.write("<input type='hidden' name='metritis'>");
-newWindow.document.getElementsByName('metritis')[0].value = r;
-
-newWindow.document.getElementsByName('email')[0].value = email;
-
-newWindow.document.write("<button type='button' onclick='window.close()'>Ακύρωση</button>");
-newWindow.document.write("<input type='submit'  value='Καταχώρηση'>");
-newWindow.document.write("</form>");
-newWindow.document.write("</body>");
-newWindow.document.write("</html>");
 
 
 
-}
 </script>
+</html>
