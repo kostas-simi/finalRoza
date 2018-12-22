@@ -41,7 +41,7 @@
 <br>
 </form>
 <form method="post" action="open.php" id="orderForm">
-  <input type="hidden" id="hiddenEmail">
+  <input type="hidden" id="hiddenEmail" name="email">
   <input type='hidden' id="metritis" name='metritis'>
 
 <input type="submit" value="Επιβεβαίωση" >
@@ -71,55 +71,7 @@ function order()
   document.getElementById('hiddenEmail').value = document.getElementById('email').value;
 }
 
-// function ClickMe()
-// {
-//   var newWindow = window.open("");
-//   var table = document.getElementById('order');
-//   newWindow.document.write("<html>");
-//
-//   newWindow.document.write("<body>");
-//   newWindow.document.write("<form method='post' action='register.php'>");
-//   newWindow.document.write("<table>");
-//
-//   newWindow.document.write("<h3>Έχετε επιλέξει τα ακόλουθα:</h3>");
-//   for (var r = 0, n = table.rows.length; r < n; r++) {
-//     newWindow.document.write("<tr>");
-//     for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
-//       if (c == 0){
-//         newWindow.document.write("<td id='titloi"+r+"'>"+table.rows[r].cells[c].innerHTML+"</td>");
-//       }else if (c==1) {
-//
-//         newWindow.document.write("<td id='posotita"+r+"'>"+table.rows[r].cells[c].innerHTML+"</td>");
-//       }
-//       }
-//       newWindow.document.write("</tr>");
-//
-// }
-// newWindow.document.write("</table>");
-//
-// newWindow.document.write("<p>Είστε σίγουροι ότι θέλετε να καταχωρηθεί η παραγγελία?</p>");
-// var email = document.getElementById('email').value;
-// newWindow.document.write("<input type='hidden' name='email'>");
-// newWindow.document.write("<input type='hidden' name='metritis'>");
-// newWindow.document.getElementsByName('metritis')[0].value = r;
-//
-// newWindow.document.getElementsByName('email')[0].value = email;
-//
-// newWindow.document.write("<button type='button' onclick='window.close()'>Ακύρωση</button>");
-// newWindow.document.write("<input type='submit'  value='Καταχώρηση'>");
-// newWindow.document.write("</form>");
-// newWindow.document.write("</body>");
-// newWindow.document.write("</html>");
-//
-//
-//
-// }
 
-
-function openMe()
-{
-  var newWindow = window.open("open.php");
-}
 
 
 
