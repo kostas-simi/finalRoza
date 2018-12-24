@@ -7,9 +7,20 @@ session_start();
   <head>
     <meta charset="utf-8">
     <link href="style.css" type="text/css" rel="stylesheet">
-    <title>Η Κουκουβάγια - Αρχική</title>
+    <title>Η Κουκουβάγια - H Παραγγελία σας</title>
   </head>
 <body>
+  <div class="navigation">
+  <ul>
+ <li><a href="index.html">Αρχική</a></li>
+ <li><a href="contact.html">Επικοινωνία</a></li>
+ <li><a href="purchase.html">Αγορές</a></li>
+ <li><a href="search.php">Αναζήτηση Αγορών</a></li>
+</ul>
+</div>
+
+<br>
+
   <h3>Έχετε επιλέξει τα ακόλουθα:</h3>
 
 <?php
@@ -46,31 +57,10 @@ session_start();
   echo ("</table>");
   echo "<h3>Είστε σίγουροι για την παραγγελία?</h3>";
   echo "<a href='purchase.html'>Ακύρωση</a> ";
-  echo "<input type='submit' value='Καταχώρηση'> ";
+  echo "<input type='submit'id='submit' value='Καταχώρηση'> ";
   echo "</form>";
 
-/*
-  DATABASE CONNECTION
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "teliki";
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-   if (!$conn){
-     die("Connection failed: " . mysqli_connect_error());
-   }
-
-   mysqli_set_charset($conn, "utf8");
-
-  for ($k=0; $k <$_SESSION['total'] ; $k++) {
-    $sql = "INSERT INTO teliki (TITLE,NUMBERS,EMAIL) VALUES ('$_SESSION['titles'][$k]','$_SESSION['numbers'][$k]','$_SESSION['email']')";
-    $result = mysqli_query($conn,$sql);
-
-  }
-   mysqli_close($conn);
-
-*/
 ?>
 
 

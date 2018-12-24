@@ -30,3 +30,10 @@
   margin-right: auto;
   width: 20%;
 }
+#submit,button{
+  color: #298dd6;
+}
+#submit:hover,button:hover{
+  background-color: #298dd6;
+  color: white;
+}
