@@ -27,9 +27,7 @@ session_start();
   $_SESSION['titles'] = $_POST['title'];
   $_SESSION['numbers'] = $_POST['number'];
   $_SESSION['total'] = $_POST['metritis'];
-  // $_SESSION['titles'] = $_SESSION['titles'];
-  // $_SESSION['numbers'] = $_SESSION['numbers'];
-  // $_SESSION['total'] = $_SESSION['total'];
+
   echo "<form method='get' action='insert.php'>";
   $_SESSION['email'] = $_POST['email'];
   echo ("<table>");

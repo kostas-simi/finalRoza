@@ -50,7 +50,7 @@ while($row = mysqli_fetch_assoc($result)) {
  }
    echo "</table>" ;
  } else {
-   echo "0 εγγραφές βρέθηκαν ";
+   echo "0 εγγραφές βρέθηκαν, παρακαλώ ελέγξτε τα στοιχεία που εισάγατε.";
  }
  mysqli_close($conn);
 
