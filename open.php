@@ -45,7 +45,7 @@ session_start();
     }elseif ($_SESSION['titles'][$j] == 'd') {
       $_SESSION['titles'][$j] = "Οι Λύκοι Της Κάλα";
       echo ("<td>Οι Λύκοι Της Κάλα</td>");
-    }else{
+    }elseif ($_SESSION['titles'][$j] == 'e'){
       $_SESSION['titles'][$j] = "Το Πράσινο Μίλι";
       echo ("<td>Το Πράσινο Μίλι</td>");
     }

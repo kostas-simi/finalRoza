@@ -27,7 +27,7 @@
           <option value="b">Το Κάλεσμα Των Τριών</option>
           <option value="c">Οι Ρημαγμένοι Τόποι</option>
           <option value="d">Οι Λύκοι Της Κάλα</option>
-          <option value="Το Πράσινο Μίλι">Το Πράσινο Μίλι</option>
+          <option value="e">Το Πράσινο Μίλι</option>
       </select></td></tr>
     <tr><td><label for="quantity">Αριθμός Αντιτύπων<sup>*</sup>:</label></td>
     <td><input type="number"  value="0" min="0" id="quantity" ></td></tr>
@@ -65,6 +65,8 @@ function order()
     title = "Οι Ρημαγμένοι Τόποι";
   }else if (title == 'd') {
     title = "Οι Λύκοι Της Κάλα";
+  }else if (title == 'e'){
+    title = "Το Πράσινο Μίλι";
   }
   document.getElementById('order').innerHTML += "<tr><td>"+title+"</td><td>"+number+"</td></tr>";
   i++;

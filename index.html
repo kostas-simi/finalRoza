@@ -21,16 +21,16 @@
 
 </body>
 <script>
-  var photo = 0;
+  var photo = 1;
   changeImage();
 function changeImage()
 {
-photo++;
-if (photo<4){
+if (photo<=4){
   document.getElementById('image').src = "photos/book"+photo+".jpg";
+  photo++;
   setTimeout(changeImage,5000);
 }else{
-  photo = 0;
+  photo = 1;
   changeImage();
 }
 }
